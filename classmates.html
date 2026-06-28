@@ -15,271 +15,242 @@
             โทนสีและพื้นฐาน
            ========================================= */
         :root {
-            --bg: #F4F7F6;            /* กำหนดสีพื้นหลังหลักของหน้าเว็บ (เทาอ่อน) */
-            --surface: #FFFFFF;       /* กำหนดสีพื้นหลังของการ์ดและแถบเมนู (สีขาว) */
-            --primary: #6A9C78;       /* กำหนดสีเขียวหลัก (โทนสบายตา) */
-            --primary-light: #E8F0EA; /* กำหนดสีเขียวอ่อนสำหรับพื้นหลังเวลาชี้เมาส์ */
-            --text-dark: #2D3748;     /* กำหนดสีตัวอักษรหลัก (สีเทาเข้ม) */
-            --text-muted: #718096;    /* กำหนดสีตัวอักษรรอง (สีเทาอ่อน) */
-            --border: #E2E8F0;        /* กำหนดสีเส้นขอบ */
+            --bg: #f0f4f2;
+            --surface: #FFFFFF;
+            --primary: #4a8f62;
+            --primary-light: #dff0e5;
+            --text-dark: #1a2332;
+            --text-muted: #64748b;
+            --border: #e1eae4;
+            --glass: rgba(255,255,255,0.78);
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --radius-md: 20px;
         }
 
-        * { 
-            box-sizing: border-box;   /* ให้นับเส้นขอบและช่องว่างรวมในความกว้างเสมอ */
-            margin: 0;                /* ลบระยะห่างด้านนอกเริ่มต้น */
-            padding: 0;               /* ลบระยะห่างด้านในเริ่มต้น */
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            font-family: 'Kanit', sans-serif; /* ใช้ฟอนต์ Kanit กับทั้งหน้าเว็บ */
-            background-color: var(--bg);      /* ดึงสีพื้นหลังหลักมาใช้ */
-            color: var(--text-dark);          /* ดึงสีตัวอักษรหลักมาใช้ */
-            line-height: 1.6;                 /* กำหนดความห่างระหว่างบรรทัดให้อ่านง่าย */
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
         /* =========================================
-           แถบนำทาง (Nav)
+           แถบนำทาง (Nav) — Glassmorphism
            ========================================= */
         nav {
-            background-color: var(--surface); /* ให้แถบเมนูเป็นสีขาว */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.03); /* สร้างเงาบางๆ ด้านล่างแถบเมนู */
-            position: sticky;                 /* ให้เมนูลอยติดขอบจอด้านบนเวลาเลื่อนลง */
-            top: 0;                           /* ติดที่ตำแหน่งบนสุด (0px) */
-            z-index: 100;                     /* ตั้งค่าความสูงของเลเยอร์ไม่ให้ถูกบัง */
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 4px 24px rgba(74, 143, 98, 0.08);
+            position: sticky; top: 0; z-index: 100;
         }
         .nav-box {
-            max-width: 1200px;                /* จำกัดความกว้างเมนูไม่ให้ยาวเกิน 1200px */
-            margin: 0 auto;                   /* จัดแถบเมนูให้อยู่กึ่งกลางหน้าจอ */
-            padding: 0 20px;                  /* เว้นระยะห่างด้านซ้ายขวา 20px */
-            display: flex;                    /* จัดวางองค์ประกอบในเมนูแนวนอน */
-            justify-content: space-between;   /* ดันโลโก้ไปซ้ายสุด และเมนูไปขวาสุด */
-            align-items: center;              /* จัดทุกอย่างให้อยู่กึ่งกลางแนวตั้ง */
-            height: 70px;                     /* กำหนดความสูงของแถบเมนู */
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            display: flex; justify-content: space-between; align-items: center; height: 70px;
         }
-        .logo { 
-            font-size: 1.5rem;                /* ขนาดตัวอักษรโลโก้ */
-            font-weight: 600;                 /* ความหนาของตัวอักษร (หนา) */
-            color: var(--primary);            /* สีโลโก้ (สีเขียวหลัก) */
-            text-decoration: none;            /* เอาเส้นใต้ลิงก์ออก */
+        .logo {
+            font-size: 1.4rem; font-weight: 700; color: var(--primary);
+            text-decoration: none; display: flex; align-items: center; gap: 10px;
         }
-        .menus { 
-            display: flex;                    /* จัดเรียงปุ่มเมนูแนวนอน */
-            gap: 5px;                         /* ระยะห่างระหว่างปุ่ม 5px */
+        .menus {
+            display: flex; gap: 4px;
+            background: rgba(74,143,98,0.05); padding: 5px;
+            border-radius: 14px; border: 1px solid var(--border);
         }
         .nav-link {
-            text-decoration: none;            /* เอาเส้นใต้ลิงก์ออก */
-            color: var(--text-muted);         /* สีตัวอักษรปุ่มปกติ */
-            padding: 8px 16px;                /* ระยะห่างด้านในของปุ่ม (บน-ล่าง 8, ซ้าย-ขวา 16) */
-            border-radius: 8px;               /* ความโค้งมนของปุ่ม */
-            transition: 0.3s;                 /* เอฟเฟกต์การเปลี่ยนสีใช้เวลา 0.3 วินาที */
-            font-weight: 500;                 /* ความหนาตัวอักษรระดับปานกลาง */
+            text-decoration: none; color: var(--text-muted);
+            padding: 7px 18px; border-radius: 10px;
+            transition: all 0.25s ease; font-weight: 500; font-size: 0.95rem;
         }
-        .nav-link:hover { 
-            background-color: #F8FAFC;        /* สีพื้นหลังเมื่อเอาเมาส์ไปชี้ */
-            color: var(--primary);            /* เปลี่ยนสีตัวอักษรเป็นสีเขียว */
-        }
-        .nav-link.active { 
-            background-color: var(--primary-light); /* สีพื้นหลังของหน้าที่เปิดอยู่ปัจจุบัน */
-            color: var(--primary);                  /* สีตัวอักษรของหน้าที่เปิดอยู่ปัจจุบัน */
+        .nav-link:hover { background-color: white; color: var(--primary); box-shadow: var(--shadow-sm); }
+        .nav-link.active {
+            background: linear-gradient(135deg, var(--primary), #5aaa74);
+            color: white; box-shadow: 0 4px 12px rgba(74,143,98,0.3);
         }
 
         /* =========================================
-           เนื้อหาหลัก
+           เนื้อหาหลัก + Page Header
            ========================================= */
-        main { 
-            max-width: 1200px;                /* จำกัดความกว้างเนื้อหาหลัก */
-            margin: 40px auto;                /* จัดกึ่งกลาง ห่างจากด้านบน 40px */
-            padding: 0 20px 80px 20px;        /* เว้นระยะห่างซ้าย ขวา ล่าง */
+        main {
+            max-width: 1200px; margin: 0 auto; padding: 0 20px 80px 20px;
         }
-        .header { 
-            text-align: center;               /* จัดตัวอักษรให้อยู่กึ่งกลาง */
-            margin-bottom: 40px;              /* เว้นระยะห่างด้านล่าง 40px ก่อนเริ่มการ์ด */
+
+        /* Header Banner */
+        .header {
+            text-align: center;
+            padding: 50px 30px 40px;
+            margin-bottom: 40px;
+            background: linear-gradient(-45deg, #3d7a55, #5aaa74, #2d6644, #6A9C78);
+            background-size: 300% 300%;
+            animation: gradMove 10s ease infinite;
+            border-radius: 0 0 32px 32px;
+            color: white;
+            position: relative;
+            overflow: hidden;
         }
-        .header h2 { 
-            font-size: 2rem;                  /* ขนาดหัวข้อ */
-            margin-bottom: 5px;               /* ระยะห่างใต้หัวข้อเล็กน้อย */
+        .header::before {
+            content: '';
+            position: absolute; top: -60px; right: -60px;
+            width: 200px; height: 200px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        @keyframes gradMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .header h2 {
+            font-size: 2.4rem; font-weight: 700; margin-bottom: 10px;
+            position: relative; z-index: 1;
+            text-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+        .header p {
+            color: rgba(255,255,255,0.9); position: relative; z-index: 1;
+            font-size: 1rem; margin-bottom: 4px;
         }
 
         /* =========================================
            การ์ดเพื่อน (Grid & Card)
            ========================================= */
         .grid-box {
-            display: grid;                    /* ใช้ Grid Layout จัดเรียงการ์ด */
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* ปรับจำนวนคอลัมน์อัตโนมัติตามขนาดจอ */
-            gap: 20px;                        /* ระยะห่างระหว่างการ์ดแต่ละใบ 20px */
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
         }
         .card {
-            background-color: var(--surface); /* พื้นหลังการ์ดสีขาว */
-            border-radius: 16px;              /* มุมการ์ดโค้ง 16px */
-            overflow: hidden;                 /* ซ่อนเนื้อหาที่ล้นออกนอกกรอบการ์ด */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* เงาบางๆ ให้การ์ดดูลอยขึ้น */
-            transition: transform 0.3s, box-shadow 0.3s; /* เอฟเฟกต์เคลื่อนไหว 0.3 วินาที */
-            display: flex;                    /* จัดเนื้อหาภายในการ์ดเป็นคอลัมน์ */
-            flex-direction: column;           /* เรียงจากบนลงล่าง */
+            background: var(--surface);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; flex-direction: column;
         }
-        .card:hover { 
-            transform: translateY(-5px);      /* เมื่อเอาเมาส์ชี้ ให้การ์ดลอยขึ้น 5px */
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);  /* เพิ่มเงาให้เข้มขึ้นเวลาชี้ */
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(74,143,98,0.15);
+            border-color: rgba(74,143,98,0.3);
         }
 
         /* รูปภาพ */
         .img-box {
-            position: relative;               /* กำหนดเป็นกรอบอ้างอิงสำหรับข้อความทับรูป */
-            width: 100%;                      /* ความกว้างเต็มกรอบการ์ด */
-            aspect-ratio: 3 / 4;              /* ล็อคสัดส่วนรูปเป็นแนวตั้ง (3:4) */
-            background-color: var(--primary-light); /* สีพื้นหลังตอนรอโหลดรูป */
-            overflow: hidden;                 /* ตัดรูปส่วนที่ล้นออกไป */
+            position: relative; width: 100%; aspect-ratio: 3 / 4;
+            background: linear-gradient(135deg, var(--primary-light), #e8f5ec);
+            overflow: hidden;
         }
-        .img { 
-            width: 100%;                      /* รูปขยายเต็มความกว้าง */
-            height: 100%;                     /* รูปขยายเต็มความสูง */
-            object-fit: cover;                /* จัดภาพให้เต็มพื้นที่โดยไม่เสียสัดส่วน */
-            object-position: center;          /* โฟกัสรูปที่จุดกึ่งกลางเสมอ */
+        .img {
+            width: 100%; height: 100%; object-fit: cover; object-position: center;
+            transition: transform 0.4s ease;
         }
+        .card:hover .img { transform: scale(1.05); }
 
         /* ข้อความทับรูป */
         .info {
-            position: absolute;               /* จัดวางอิสระซ้อนทับไปบนรูป */
-            bottom: 0;                        /* ชิดขอบด้านล่าง */
-            left: 0;                          /* ชิดซ้าย */
-            right: 0;                         /* ชิดขวา */
-            padding: 30px 15px 15px 15px;     /* ระยะห่างของข้อความ */
-            background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.4) 60%, transparent); /* ไล่สีดำฟุ้งๆ จากล่างขึ้นบน */
-            color: white;                     /* สีตัวอักษรเป็นสีขาว */
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 35px 14px 14px 14px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.4) 60%, transparent);
+            color: white;
         }
-        .name { 
-            font-size: 1rem;                  /* ขนาดชื่อ */
-            font-weight: 600;                 /* ความหนาของชื่อ */
-            margin-bottom: 2px;               /* ห่างจากชื่อเล่นด้านล่าง 2px */
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* เพิ่มเงาตัวหนังสือให้อ่านง่ายขึ้น */
+        .name {
+            font-size: 1rem; font-weight: 600; margin-bottom: 2px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
         }
-        .nick-num { 
-            font-size: 0.75rem;               /* ขนาดชื่อเล่นและเลขที่ */
-            font-weight: 300;                 /* ความหนาน้อย */
-            color: #E2E8F0;                   /* สีเทาอ่อนมากๆ */
-        }
+        .nick-num { font-size: 0.75rem; font-weight: 300; color: #dce8e0; }
 
         .nick-to {
-            font-size: 0.85rem;               /* ขนาดชื่อเล่นและเลขที่ */
-            font-weight: 400;                 /* ความหนาน้อย */
-            color: #ff0000;  
+            font-size: 0.8rem; font-weight: 500;
+            color: #ffdd57;
+            background: rgba(0,0,0,0.3);
+            display: inline-block;
+            padding: 1px 8px; border-radius: 10px;
+            margin-top: 3px;
         }
 
         /* ปุ่มโซเชียล */
-        .social { 
-            padding: 12px;                    /* ระยะห่างกรอบโซเชียล */
-            display: flex;                    /* วางปุ่มแนวนอน */
-            justify-content: center;          /* ให้อยู่กึ่งกลาง */
-            gap: 15px;                        /* ห่างกัน 15px */
+        .social {
+            padding: 12px; display: flex; justify-content: center; gap: 12px;
+            background: var(--surface);
         }
         .s-btn {
-            display: inline-flex;             /* จัดไอคอนและข้อความในปุ่ม */
-            align-items: center;              /* ให้อยู่กึ่งกลางแนวตั้ง */
-            background-color: var(--bg);      /* สีพื้นหลังปุ่มโซเชียล */
-            color: var(--text-muted);         /* สีไอคอนเริ่มต้น */
-            border-radius: 20px;              /* ทำปุ่มให้โค้งมน */
-            text-decoration: none;            /* เอาเส้นใต้ออก */
-            overflow: hidden;                 /* ซ่อนข้อความเวลาปุ่มยังไม่ขยาย */
-            max-width: 32px;                  /* ขนาดกว้างเริ่มต้นเท่ากับความสูง */
-            height: 32px;                     /* ความสูงปุ่ม */
-            transition: max-width 0.4s, background-color 0.3s; /* แอนิเมชันปุ่มยืดออก */
+            display: inline-flex; align-items: center;
+            background: var(--bg);
+            color: var(--text-muted);
+            border-radius: 20px; text-decoration: none;
+            overflow: hidden; max-width: 32px; height: 32px;
+            transition: max-width 0.4s ease, background-color 0.3s ease;
+            border: 1px solid var(--border);
         }
-        .s-icon { 
-            width: 32px;                      /* ความกว้างกล่องไอคอน */
-            height: 32px;                     /* ความสูงกล่องไอคอน */
-            display: flex;                    /* ใช้ Flexbox */
-            align-items: center;              /* จัดไอคอนกึ่งกลางแนวตั้ง */
-            justify-content: center;          /* จัดไอคอนกึ่งกลางแนวนอน */
-            flex-shrink: 0;                   /* ห้ามกล่องไอคอนหดตัว */
+        .s-icon {
+            width: 32px; height: 32px; display: flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
         }
-        .s-icon svg { 
-            width: 16px;                      /* ขนาดภาพไอคอน SVG */
-            height: 16px; 
-        }
-        .s-name { 
-            font-size: 0.75rem;               /* ขนาดตัวหนังสือชื่อแอป */
-            font-weight: 500;                 /* ความหนาตัวหนังสือ */
-            opacity: 0;                       /* ซ่อนข้อความไว้เริ่มต้น */
-            transition: opacity 0.3s;         /* เอฟเฟกต์ค่อยๆ แสดงข้อความ */
-        }
+        .s-icon svg { width: 16px; height: 16px; }
+        .s-name { font-size: 0.75rem; font-weight: 500; opacity: 0; transition: opacity 0.3s; }
+        .s-btn:hover { max-width: 130px; border-color: transparent; }
+        .s-btn:hover .s-name { opacity: 1; margin-right: 12px; }
 
-        .s-btn:hover { 
-            max-width: 120px;                 /* ขยายความกว้างปุ่มเมื่อเอาเมาส์ชี้ */
-        }
-        .s-btn:hover .s-name { 
-            opacity: 1;                       /* แสดงข้อความ */
-            margin-right: 12px;               /* ขยับข้อความออกจากขอบขวา */
-        }
-
-        .fb:hover { background-color: #1877F2; color: white; } /* สี Facebook ตอนชี้ */
+        .fb:hover { background-color: #1877F2; color: white; }
         .fb:hover .s-icon { color: white; }
-        .fb .s-icon { color: #1877F2; }       /* สีโลโก้ Facebook เริ่มต้น */
+        .fb .s-icon { color: #1877F2; }
 
-        .ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; } /* สี IG ตอนชี้ */
+        .ig:hover { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
         .ig:hover .s-icon { color: white; }
-        .ig .s-icon { color: #E1306C; }       /* สีโลโก้ IG เริ่มต้น */
+        .ig .s-icon { color: #E1306C; }
 
         /* =========================================
-           ฟุตเตอร์ (Footer) น้ำเงินเข้ม & มีเงา
+           ฟุตเตอร์ (Footer) Premium Dark
            ========================================= */
         footer {
-            text-align: center;               /* จัดข้อความให้อยู่กึ่งกลาง */
-            padding: 40px 20px;               /* ระยะขอบด้านใน (บนล่าง 40px ซ้ายขวา 20px) */
-            background-color: #0B1120;        /* สีน้ำเงินเข้มอมดำ (Navy/Blackish blue) */
-            color: #F8FAFC;                   /* สีตัวอักษรขาว/เทาอ่อน */
-            position: relative;               /* เพื่อให้ตั้งค่า z-index ได้ */
-            z-index: 10;                      /* ดันเลเยอร์ขึ้นมาให้สูงกว่าส่วนเนื้อหาหลัก */
-            box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.4); /* สร้างเงาสีดำฟุ้งๆ ทอดขึ้นไปด้านบน (-10px) */
+            text-align: center; padding: 50px 20px;
+            background: linear-gradient(180deg, #0d1528 0%, #0B1120 100%);
+            color: #F8FAFC;
+            position: relative; z-index: 10;
+            box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
+            margin-top: 60px;
         }
-        .footer-box { 
-            max-width: 1200px;                /* จำกัดความกว้างเนื้อหาข้างในฟุตเตอร์ */
-            margin: 0 auto;                   /* จัดกึ่งกลางหน้าจอ */
-            display: flex;                    /* จัดเรียงข้อความและปุ่ม */
-            flex-direction: column;           /* เรียงจากบนลงล่าง */
-            align-items: center;              /* ให้อยู่กึ่งกลางตรงกลาง */
-            gap: 10px;                        /* ระยะห่างแต่ละบรรทัด 10px */
+        footer::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
         }
+        .footer-box {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; flex-direction: column; align-items: center; gap: 14px;
+        }
+        .footer-box > p { color: #94A3B8; font-size: 0.95rem; }
         .ig-btn {
-            display: inline-flex;             /* จัดไอคอนและตัวอักษรในปุ่มให้อยู่บรรทัดเดียวกัน */
-            align-items: center;              /* ให้ไอคอนและอักษรอยู่กึ่งกลางบรรทัด */
-            gap: 8px;                         /* ระยะห่างระหว่างไอคอนและตัวอักษร */
-            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); /* ไล่สี Instagram */
-            color: white;                     /* ตัวอักษรสีขาว */
-            padding: 10px 20px;               /* ขนาดปุ่มด้านใน */
-            border-radius: 30px;              /* มุมปุ่มโค้งมน */
-            text-decoration: none;            /* เอาเส้นใต้ของลิงก์ออก */
-            font-weight: 500;                 /* ความหนาปุ่มระดับกลาง */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* สร้างเงาปุ่มเล็กน้อย */
-            transition: transform 0.3s, box-shadow 0.3s; /* แอนิเมชันปุ่มกดลง */
+            display: inline-flex; align-items: center; gap: 10px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white; padding: 13px 28px; border-radius: 50px;
+            text-decoration: none; font-weight: 600; font-size: 0.95rem;
+            box-shadow: 0 6px 20px rgba(220,39,67,0.35); transition: all 0.3s ease;
         }
-        .ig-btn:hover { 
-            transform: translateY(-3px);      /* เวลาชี้ให้ปุ่มลอยขึ้นนิดนึง */
-            box-shadow: 0 8px 15px rgba(225, 48, 108, 0.5); /* เงาเข้มขึ้นตามสีชมพูไอจี */
-        }
-        .ig-btn svg { 
-            width: 20px;                      /* กำหนดขนาดไอคอน IG */
-            height: 20px; 
-        }
-        .footer-copyright {
-            font-size: 0.8rem;                /* กำหนดให้ขนาดตัวหนังสือลิขสิทธิ์เล็กลง */
-            margin-top: 15px;                 /* ห่างจากปุ่มด้านบน 15px */
-            color: #cbd5e1;                   /* ใช้สีเทาหม่นๆ ไม่แย่งจุดสนใจ */
-        }
+        .ig-btn:hover { transform: translateY(-4px) scale(1.04); box-shadow: 0 14px 30px rgba(225, 48, 108, 0.55); }
+        .ig-btn svg { width: 20px; height: 20px; }
+        .footer-copyright { font-size: 0.82rem; margin-top: 8px; color: #475569; }
 
         /* =========================================
             มือถือ (Responsive)
            ========================================= */
         @media (max-width: 480px) {
-            .nav-box { flex-direction: column; height: auto; padding: 10px 20px; gap: 10px; }
-            .grid-box { grid-template-columns: repeat(2, 1fr); gap: 12px; } /* บังคับ 2 คอลัมน์ */
-            .info { padding: 20px 10px 10px 10px; }
+            .nav-box { flex-direction: column; height: auto; padding: 12px 16px; gap: 10px; }
+            .menus { width: 100%; justify-content: center; }
+            .header { padding: 36px 20px 30px; border-radius: 0 0 24px 24px; }
+            .header h2 { font-size: 1.8rem; }
+            .grid-box { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .info { padding: 22px 10px 10px 10px; }
             .name { font-size: 0.85rem; }
             .nick-num { font-size: 0.65rem; }
             .social { padding: 8px; gap: 8px; }
             .s-btn { height: 28px; max-width: 28px; }
             .s-icon { width: 28px; height: 28px; }
             .s-icon svg { width: 14px; height: 14px; }
-            .s-btn:hover { max-width: 100px; }
+            .s-btn:hover { max-width: 110px; }
         }
     </style>
 </head>
@@ -490,7 +461,7 @@
             <!-- คนที่ 13 -->
             <div class="card">
                 <div class="img-box">
-                    <img src="tonggao.jpg" alt="รูปเพื่อน" class="img">
+                    <img src="tonggao.jpg" alt="" class="img">
                     <div class="info">
                         <h3 class="name">ภคภัทร พวงไธสง</h3>
                         <p class="nick-num">ชื่อเล่น : ตองเก้า  เลขที่ 13</p>
@@ -521,7 +492,7 @@
             <!-- คนที่ 15 -->
             <div class="card">
                 <div class="img-box">
-                    <img src="get.jpg" alt="รูปเพื่อน" class="img">
+                    <img src="get.jpg" alt="" class="img">
                     <div class="info">
                         <h3 class="name">รณพีร์ เสฏฐพงศ์พาณิช</h3>
                         <p class="nick-num">ชื่อเล่น : เก็ท  เลขที่ 15</p>
@@ -536,7 +507,7 @@
             <!-- คนที่ 16 -->
             <div class="card">
                 <div class="img-box">
-                    <img src="cotton.jpg" alt="รูปเพื่อน" class="img">
+                    <img src="cotton.jpg" alt="" class="img">
                     <div class="info">
                         <h3 class="name">วรกร เตชะวรวุฒิ</h3>
                         <p class="nick-num">ชื่อเล่น : คอตต๊อน  เลขที่ 16</p>
@@ -566,7 +537,7 @@
             <!-- คนที่ 18 -->
             <div class="card">
                 <div class="img-box">
-                    <img src="tatian.jpg" alt="รูปเพื่อน" class="img">
+                    <img src="tation.jpg" alt="" class="img">
                     <div class="info">
                         <h3 class="name">วุฒิศักดิ์ เอกพิริยกุล</h3>
                         <p class="nick-num">ชื่อเล่น : ต้าเทียน  เลขที่ 18</p>

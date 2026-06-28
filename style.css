@@ -1,0 +1,349 @@
+/* =====================================================
+   SHARED STYLES — ม.3/3 รุ่น 46 SMT-R
+   Dark/Light Mode + Circuit Board Background
+   ===================================================== */
+
+/* =====================================================
+   DARK MODE VARIABLE OVERRIDES
+   (higher specificity than :root → wins over inline styles)
+   ===================================================== */
+html[data-theme="dark"] {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --primary: #5aaa74;
+    --primary-2: #6abf82;
+    --primary-light: rgba(90,170,116,0.1);
+    --primary-glow: rgba(90,170,116,0.25);
+    --text-dark: #e2e8f0;
+    --text-muted: #8b949e;
+    --border: #21262d;
+    --alert-border: #d97706;
+    --glass: rgba(13,17,23,0.92);
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.5);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.6);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,0.7);
+}
+
+/* =====================================================
+   SMOOTH THEME TRANSITIONS
+   ===================================================== */
+body,
+nav,
+.link-card,
+.doc-card,
+.memory-card,
+.card,
+.stat-box,
+.calendar-wrapper,
+.alert-box,
+.modal-content,
+.cal-day,
+.nav-link,
+.social,
+.s-btn,
+.doc-btn,
+.menus,
+.ig-btn,
+.view-more-btn,
+.memory-tag,
+footer {
+    transition:
+        background-color 0.35s ease,
+        background 0.35s ease,
+        color 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease !important;
+}
+
+/* =====================================================
+   CIRCUIT BOARD BACKGROUND — LIGHT MODE
+   PCB trace pattern, no robots, SMT electronics theme
+   ===================================================== */
+.circuit-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpolyline points='0,80 160,80 160,200 300,200 300,120 480,120' stroke='rgba(74,143,98,0.13)' stroke-width='1.5' fill='none'/%3E%3Cpolyline points='600,300 440,300 440,200 300,200' stroke='rgba(74,143,98,0.11)' stroke-width='1.5' fill='none'/%3E%3Cpolyline points='0,360 120,360 120,260 260,260 260,380 440,380 440,300' stroke='rgba(74,143,98,0.1)' stroke-width='1.5' fill='none'/%3E%3Cpolyline points='80,0 80,80' stroke='rgba(74,143,98,0.09)' stroke-width='1' fill='none'/%3E%3Cpolyline points='480,0 480,120' stroke='rgba(74,143,98,0.09)' stroke-width='1' fill='none'/%3E%3Cpolyline points='0,480 160,480 160,380 260,380' stroke='rgba(74,143,98,0.08)' stroke-width='1' fill='none'/%3E%3Cpolyline points='600,480 520,480 520,400 440,400 440,380' stroke='rgba(74,143,98,0.08)' stroke-width='1' fill='none'/%3E%3Cpolyline points='360,600 360,520 280,520 280,460 160,460 160,480' stroke='rgba(74,143,98,0.07)' stroke-width='1' fill='none'/%3E%3Cpolyline points='540,0 540,200 600,200' stroke='rgba(74,143,98,0.07)' stroke-width='1' fill='none'/%3E%3Cpolyline points='0,600 0,560 100,560 100,520 200,520 200,480' stroke='rgba(74,143,98,0.06)' stroke-width='1' fill='none'/%3E%3Crect x='255' y='112' width='45' height='30' rx='3' stroke='rgba(74,143,98,0.14)' stroke-width='1' fill='none'/%3E%3Cline x1='255' y1='122' x2='228' y2='122' stroke='rgba(74,143,98,0.12)' stroke-width='1'/%3E%3Cline x1='255' y1='132' x2='228' y2='132' stroke='rgba(74,143,98,0.12)' stroke-width='1'/%3E%3Cline x1='300' y1='122' x2='330' y2='122' stroke='rgba(74,143,98,0.12)' stroke-width='1'/%3E%3Cline x1='300' y1='132' x2='330' y2='132' stroke='rgba(74,143,98,0.12)' stroke-width='1'/%3E%3Crect x='108' y='356' width='24' height='8' rx='2' stroke='rgba(74,143,98,0.14)' stroke-width='1' fill='none'/%3E%3Crect x='410' y='372' width='30' height='16' rx='3' stroke='rgba(74,143,98,0.12)' stroke-width='1' fill='none'/%3E%3Ccircle cx='160' cy='80' r='4' fill='rgba(74,143,98,0.22)'/%3E%3Ccircle cx='160' cy='200' r='5' fill='rgba(74,143,98,0.25)'/%3E%3Ccircle cx='300' cy='200' r='5' fill='rgba(74,143,98,0.28)'/%3E%3Ccircle cx='300' cy='120' r='4' fill='rgba(74,143,98,0.22)'/%3E%3Ccircle cx='440' cy='300' r='4' fill='rgba(74,143,98,0.2)'/%3E%3Ccircle cx='440' cy='380' r='4' fill='rgba(74,143,98,0.2)'/%3E%3Ccircle cx='120' cy='360' r='3' fill='rgba(74,143,98,0.18)'/%3E%3Ccircle cx='120' cy='260' r='3' fill='rgba(74,143,98,0.18)'/%3E%3Ccircle cx='260' cy='260' r='3' fill='rgba(74,143,98,0.18)'/%3E%3Ccircle cx='260' cy='380' r='3' fill='rgba(74,143,98,0.18)'/%3E%3Ccircle cx='160' cy='480' r='3' fill='rgba(74,143,98,0.15)'/%3E%3Ccircle cx='520' cy='480' r='3' fill='rgba(74,143,98,0.13)'/%3E%3Ccircle cx='280' cy='520' r='3' fill='rgba(74,143,98,0.1)'/%3E%3Ccircle cx='300' cy='200' r='9' stroke='rgba(74,143,98,0.18)' stroke-width='1' fill='none'/%3E%3Ccircle cx='440' cy='300' r='8' stroke='rgba(74,143,98,0.15)' stroke-width='1' fill='none'/%3E%3Ccircle cx='60' cy='40' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='200' cy='40' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='380' cy='40' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='540' cy='40' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='60' cy='160' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='380' cy='160' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='540' cy='160' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='60' cy='320' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='200' cy='320' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='540' cy='320' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='60' cy='460' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='380' cy='460' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='540' cy='460' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='60' cy='560' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='200' cy='560' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3Ccircle cx='460' cy='560' r='1.5' fill='rgba(74,143,98,0.07)'/%3E%3C/svg%3E");
+    background-size: 600px 600px;
+    opacity: 1;
+    transition: opacity 0.4s ease, filter 0.4s ease;
+}
+
+/* =====================================================
+   CIRCUIT BOARD BACKGROUND — DARK MODE
+   Same traces but bright neon green with glow
+   ===================================================== */
+html[data-theme="dark"] .circuit-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cpolyline points='0,80 160,80 160,200 300,200 300,120 480,120' stroke='rgba(80,220,140,0.5)' stroke-width='1.5' fill='none'/%3E%3Cpolyline points='600,300 440,300 440,200 300,200' stroke='rgba(80,220,140,0.45)' stroke-width='1.5' fill='none'/%3E%3Cpolyline points='0,360 120,360 120,260 260,260 260,380 440,380 440,300' stroke='rgba(80,220,140,0.4)' stroke-width='1.5' fill='none'/%3E%3Cpolyline points='80,0 80,80' stroke='rgba(80,220,140,0.32)' stroke-width='1' fill='none'/%3E%3Cpolyline points='480,0 480,120' stroke='rgba(80,220,140,0.32)' stroke-width='1' fill='none'/%3E%3Cpolyline points='0,480 160,480 160,380 260,380' stroke='rgba(80,220,140,0.3)' stroke-width='1' fill='none'/%3E%3Cpolyline points='600,480 520,480 520,400 440,400 440,380' stroke='rgba(80,220,140,0.3)' stroke-width='1' fill='none'/%3E%3Cpolyline points='360,600 360,520 280,520 280,460 160,460 160,480' stroke='rgba(80,220,140,0.26)' stroke-width='1' fill='none'/%3E%3Cpolyline points='540,0 540,200 600,200' stroke='rgba(80,220,140,0.25)' stroke-width='1' fill='none'/%3E%3Cpolyline points='0,600 0,560 100,560 100,520 200,520 200,480' stroke='rgba(80,220,140,0.22)' stroke-width='1' fill='none'/%3E%3Crect x='255' y='112' width='45' height='30' rx='3' stroke='rgba(80,220,140,0.5)' stroke-width='1' fill='none'/%3E%3Cline x1='255' y1='122' x2='228' y2='122' stroke='rgba(80,220,140,0.45)' stroke-width='1'/%3E%3Cline x1='255' y1='132' x2='228' y2='132' stroke='rgba(80,220,140,0.45)' stroke-width='1'/%3E%3Cline x1='300' y1='122' x2='330' y2='122' stroke='rgba(80,220,140,0.45)' stroke-width='1'/%3E%3Cline x1='300' y1='132' x2='330' y2='132' stroke='rgba(80,220,140,0.45)' stroke-width='1'/%3E%3Crect x='108' y='356' width='24' height='8' rx='2' stroke='rgba(80,220,140,0.5)' stroke-width='1' fill='none'/%3E%3Crect x='410' y='372' width='30' height='16' rx='3' stroke='rgba(80,220,140,0.42)' stroke-width='1' fill='none'/%3E%3Ccircle cx='160' cy='80' r='4' fill='rgba(100,240,160,0.75)'/%3E%3Ccircle cx='160' cy='200' r='5' fill='rgba(100,240,160,0.8)'/%3E%3Ccircle cx='300' cy='200' r='5' fill='rgba(100,240,160,0.85)'/%3E%3Ccircle cx='300' cy='120' r='4' fill='rgba(100,240,160,0.75)'/%3E%3Ccircle cx='440' cy='300' r='4' fill='rgba(100,240,160,0.7)'/%3E%3Ccircle cx='440' cy='380' r='4' fill='rgba(100,240,160,0.7)'/%3E%3Ccircle cx='120' cy='360' r='3' fill='rgba(100,240,160,0.65)'/%3E%3Ccircle cx='120' cy='260' r='3' fill='rgba(100,240,160,0.65)'/%3E%3Ccircle cx='260' cy='260' r='3' fill='rgba(100,240,160,0.65)'/%3E%3Ccircle cx='260' cy='380' r='3' fill='rgba(100,240,160,0.65)'/%3E%3Ccircle cx='160' cy='480' r='3' fill='rgba(100,240,160,0.6)'/%3E%3Ccircle cx='520' cy='480' r='3' fill='rgba(100,240,160,0.55)'/%3E%3Ccircle cx='280' cy='520' r='3' fill='rgba(100,240,160,0.5)'/%3E%3Ccircle cx='300' cy='200' r='9' stroke='rgba(80,220,140,0.6)' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='440' cy='300' r='8' stroke='rgba(80,220,140,0.55)' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='60' cy='40' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='200' cy='40' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='380' cy='40' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='540' cy='40' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='60' cy='160' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='380' cy='160' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='540' cy='160' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='60' cy='320' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='200' cy='320' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='540' cy='320' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='60' cy='460' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='380' cy='460' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='540' cy='460' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='60' cy='560' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='200' cy='560' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3Ccircle cx='460' cy='560' r='1.5' fill='rgba(80,220,140,0.35)'/%3E%3C/svg%3E");
+    filter:
+        drop-shadow(0 0 4px rgba(80,220,140,0.55))
+        drop-shadow(0 0 10px rgba(80,220,140,0.25));
+}
+
+/* =====================================================
+   NEON AMBIENT GLOW OVERLAY — DARK MODE
+   Soft radial green glow across the background
+   ===================================================== */
+.neon-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    background:
+        radial-gradient(ellipse at 15% 20%, rgba(74,200,120,0.07) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 75%, rgba(74,200,120,0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(74,200,120,0.04) 0%, transparent 60%);
+}
+
+html[data-theme="dark"] .neon-overlay {
+    opacity: 1;
+}
+
+/* =====================================================
+   THEME TOGGLE BUTTON
+   ===================================================== */
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border, #e1eae4);
+    background: var(--surface, #fff);
+    color: var(--text-muted, #64748b);
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 10px;
+    line-height: 1;
+}
+
+.theme-toggle-btn:hover {
+    color: var(--primary, #4a8f62);
+    border-color: rgba(74,143,98,0.4);
+    background: var(--primary-light, #dff0e5);
+}
+
+html[data-theme="dark"] .theme-toggle-btn {
+    background: #21262d;
+    border-color: #30363d;
+    color: #8b949e;
+}
+
+html[data-theme="dark"] .theme-toggle-btn:hover {
+    background: rgba(90,170,116,0.12);
+    border-color: rgba(90,170,116,0.45);
+    color: #5aaa74;
+    box-shadow: 0 0 12px rgba(80,220,140,0.15);
+}
+
+.toggle-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+}
+
+/* Show sun icon in dark mode (to switch to light), moon in light mode */
+.icon-moon { display: block; }
+.icon-sun  { display: none; }
+html[data-theme="dark"] .icon-moon { display: none; }
+html[data-theme="dark"] .icon-sun  { display: block; }
+
+.label-dark  { display: inline; }
+.label-light { display: none; }
+html[data-theme="dark"] .label-dark  { display: none; }
+html[data-theme="dark"] .label-light { display: inline; }
+
+/* =====================================================
+   DARK MODE EXPLICIT OVERRIDES
+   (For hardcoded gradient values in inline styles)
+   ===================================================== */
+
+/* Nav */
+html[data-theme="dark"] nav {
+    background: rgba(13,17,23,0.95) !important;
+    border-bottom-color: rgba(255,255,255,0.06) !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 1px 0 rgba(80,220,140,0.08) !important;
+}
+
+html[data-theme="dark"] .menus {
+    background: rgba(90,170,116,0.05) !important;
+    border-color: #21262d !important;
+}
+
+html[data-theme="dark"] .nav-link:hover {
+    background-color: #21262d !important;
+    color: #5aaa74 !important;
+    box-shadow: none !important;
+}
+
+html[data-theme="dark"] .nav-link.active {
+    background: linear-gradient(135deg, #1e4d35, #2a6645) !important;
+    box-shadow: 0 4px 12px rgba(80,220,140,0.2) !important;
+}
+
+/* Hero banner */
+html[data-theme="dark"] .hero {
+    background: linear-gradient(-45deg, #0d2218, #132d1e, #0a1a11, #112618, #0f2415) !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8), 0 0 40px rgba(80,220,140,0.06) !important;
+}
+
+/* Classmates page header */
+html[data-theme="dark"] .header {
+    background: linear-gradient(-45deg, #0d2218, #132d1e, #0a1a11, #112618) !important;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6) !important;
+}
+
+/* Memories page h1 gradient text */
+html[data-theme="dark"] .page-header h1 {
+    background: linear-gradient(135deg, #5aaa74, #8abe9c) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Stats */
+html[data-theme="dark"] .stat-box::before {
+    background: linear-gradient(90deg, #2d6e46, #5aaa74) !important;
+}
+
+html[data-theme="dark"] .stat-box:hover {
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 20px rgba(80,220,140,0.08) !important;
+}
+
+/* Section title underline */
+html[data-theme="dark"] .section-title::after {
+    background: linear-gradient(90deg, #2d6e46, #5aaa74) !important;
+}
+
+/* Link cards */
+html[data-theme="dark"] .link-card::before {
+    background: linear-gradient(to top, rgba(90,170,116,0.06), transparent) !important;
+}
+
+html[data-theme="dark"] .link-card:hover {
+    box-shadow: 0 24px 50px rgba(0,0,0,0.5), 0 0 30px rgba(80,220,140,0.08) !important;
+    border-color: rgba(90,170,116,0.2) !important;
+}
+
+html[data-theme="dark"] .icon-box {
+    background: linear-gradient(135deg, rgba(90,170,116,0.08), rgba(0,0,0,0.2)) !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4) !important;
+}
+
+html[data-theme="dark"] .link-card:hover .icon-box {
+    background: linear-gradient(135deg, #1e4d35, #2a6645) !important;
+    box-shadow: 0 12px 28px rgba(80,220,140,0.25) !important;
+}
+
+/* Doc cards */
+html[data-theme="dark"] .doc-btn {
+    background: #21262d !important;
+    border-color: #30363d !important;
+}
+
+html[data-theme="dark"] .doc-card:hover {
+    box-shadow: 0 12px 28px rgba(0,0,0,0.5), 0 0 15px rgba(80,220,140,0.06) !important;
+}
+
+html[data-theme="dark"] .doc-card:hover .doc-icon {
+    background: linear-gradient(135deg, #1e4d35, #2a6645) !important;
+    box-shadow: 0 4px 12px rgba(80,220,140,0.2) !important;
+}
+
+html[data-theme="dark"] .doc-card:hover .doc-btn {
+    background: linear-gradient(135deg, #1e4d35, #2a6645) !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 12px rgba(80,220,140,0.2) !important;
+}
+
+/* Alert box */
+html[data-theme="dark"] .alert-box {
+    background: linear-gradient(135deg, rgba(40,25,0,0.9), rgba(25,15,0,0.85)) !important;
+    border-color: rgba(215,119,0,0.3) !important;
+}
+
+/* Calendar */
+html[data-theme="dark"] .cal-day {
+    background: #1e2a1e !important;
+    border-color: rgba(90,170,116,0.1) !important;
+}
+
+html[data-theme="dark"] .cal-day.study:hover,
+html[data-theme="dark"] .cal-day.study:active {
+    background: linear-gradient(135deg, #1e4d35, #2a6645) !important;
+    box-shadow: 0 8px 20px rgba(80,220,140,0.3), 0 0 15px rgba(80,220,140,0.15) !important;
+}
+
+html[data-theme="dark"] .cal-day.future,
+html[data-theme="dark"] .cal-day.holiday {
+    background: #111a11 !important;
+    color: #2d3d2d !important;
+}
+
+html[data-theme="dark"] .cal-head {
+    color: #5aaa74 !important;
+}
+
+/* Social buttons */
+html[data-theme="dark"] .s-btn {
+    background: #21262d !important;
+    border-color: #30363d !important;
+}
+
+/* Memory cards */
+html[data-theme="dark"] .memory-card:hover {
+    box-shadow: 0 20px 45px rgba(0,0,0,0.6), 0 0 25px rgba(80,220,140,0.07) !important;
+}
+
+html[data-theme="dark"] .memory-tag {
+    background: rgba(90,170,116,0.1) !important;
+    border-color: rgba(90,170,116,0.2) !important;
+}
+
+html[data-theme="dark"] .view-more-btn {
+    color: #5aaa74 !important;
+    border-color: rgba(90,170,116,0.5) !important;
+}
+
+html[data-theme="dark"] .view-more-btn:hover {
+    background: linear-gradient(135deg, #1e4d35, #2a6645) !important;
+    color: white !important;
+    border-color: transparent !important;
+    box-shadow: 0 6px 16px rgba(80,220,140,0.25) !important;
+}
+
+/* Modal */
+html[data-theme="dark"] .modal-overlay {
+    background: rgba(0,0,0,0.96) !important;
+    backdrop-filter: blur(16px) !important;
+}
+
+html[data-theme="dark"] .modal-content {
+    background: #161b22 !important;
+    border-color: #21262d !important;
+}
+
+html[data-theme="dark"] .modal-gallery-grid img:hover {
+    border-color: rgba(90,170,116,0.35) !important;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.5), 0 0 15px rgba(80,220,140,0.1) !important;
+}
+
+/* IG button stays colorful in dark mode */
+
+/* Footer */
+html[data-theme="dark"] footer {
+    background: linear-gradient(180deg, #050912 0%, #020508 100%) !important;
+    box-shadow: 0 -12px 40px rgba(0,0,0,0.8) !important;
+}
+
+html[data-theme="dark"] footer::before {
+    background: linear-gradient(90deg, transparent, rgba(80,220,140,0.5), transparent) !important;
+}
