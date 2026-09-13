@@ -752,11 +752,11 @@
                  ม.3/3 รุ่น 46 SMT-R
             </a>
             <div class="menus">
-                <a href="index.html" class="nav-link active">หน้าแรก</a>
+                <a href="index.html" class="nav-link">หน้าแรก</a>
                 <a href="classmates.html" class="nav-link">สมาชิก</a>
                 
                 <a href="memories.html" class="nav-link">ความทรงจำ</a>
-                <a href="per.html" class="nav-link active">ผลงานของห้อง</a>
+                <a href="per.html" class="nav-link">ผลงานของห้อง</a>
             </div>
         </div>
     </nav>
@@ -891,6 +891,17 @@
             const walk = (x - startX) * 2; // ความเร็วในการลาก
             slider.scrollLeft = scrollLeft - walk;
         });
+    </script>
+
+    <script>
+        // ไฮไลต์ nav ตามหน้าปัจจุบันอัตโนมัติ
+        (function() {
+            var current = location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+                var href = link.getAttribute('href').split('/').pop();
+                if (href === current) link.classList.add('active');
+            });
+        })();
     </script>
 </body>
 </html>
